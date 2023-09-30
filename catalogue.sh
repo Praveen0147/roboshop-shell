@@ -39,14 +39,16 @@ VALIDATE $? "Installing NodeJS"
 # this command will defnitely fail
 # IMPROVEMENT: first check the user already exist or not, if not exist then create
 id roboshop
-if $? ne 0
-useradd roboshop &>>$LOGFILE
+ if [ $? -ne 0 ]
+ then 
+    useradd roboshop &>>$LOGFILE
 fi
 
 #write a condition to check directory already exist or not
 cd /app
-if $? ne 0
-mkdir /app &>>$LOGFILE
+ if [ $? -ne 0 ]
+ then
+    mkdir /app &>>$LOGFILE
 fi
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
