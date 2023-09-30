@@ -45,11 +45,11 @@ id roboshop
 fi
 
 #write a condition to check directory already exist or not
-cd /app
- if [ $? -ne 0 ]
- then
+#cd /app
+# if [ $? -ne 0 ]
+# then
     mkdir /app &>>$LOGFILE
-fi
+#fi
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
 
